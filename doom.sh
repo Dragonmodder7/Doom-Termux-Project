@@ -6,14 +6,14 @@ vermelho="\e[31m"
 reset="\e[0m"
 
 # Exibição do logo
-echo -e "${verde}██████╗  ██████╗  ██████╗ ███╗   ███╗${reset}"
-echo -e "${verde}██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║${reset}"
-echo -e "${verde}██║  ██║██║   ██║██║   ██║██╔████╔██║${reset}"
-echo -e "${verde}██║  ██║██║   ██║██║   ██║██║╚██╔╝██║${reset}"
-echo -e "${verde}██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║${reset}"
-echo -e "${verde}╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝${reset}"
+echo -e "${vermelho}██████╗  ██████╗  ██████╗ ███╗   ███╗${reset}"
+echo -e "${vermelho}██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║${reset}"
+echo -e "${vermelho}██║  ██║██║   ██║██║   ██║██╔████╔██║${reset}"
+echo -e "${vermelho}██║  ██║██║   ██║██║   ██║██║╚██╔╝██║${reset}"
+echo -e "${vermelho}██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║${reset}"
+echo -e "${vermelho}╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝${reset}"
 echo -e "${vermelho}( -_•)︻デ═一${reset}\n"
-echo -e "${vermelho}By Dragon Modder${reset}\n"
+echo -e "${vermelho}By Dragonmodder7 yt${reset}\n"
 
 # Menu para o usuário escolher a ferramenta
 echo "Escolha uma ferramenta para executar:"
@@ -30,6 +30,8 @@ echo "10 - A-Rat (Exploração de RAT)"
 echo "11 - Phonesploit (Exploração de dispositivos móveis)"
 echo "12 - Codificação e Decodificação Base64"
 echo "13 - Wi-Fi Cracker (Quebra de senhas Wi-Fi)"
+echo "14 - Social-Engineer Toolkit (Ataques de engenharia social)"
+echo "15 - Burp Suite (Ferramenta de segurança web)"
 echo "0 - Sair"
 
 # Recebe a opção do usuário
@@ -85,6 +87,91 @@ case $opcao in
         cd MaxPhisher && bash maxphisher.sh
         cd ..
         ;;
+    6)
+        echo "Verificando instalação do Hydra..."
+        if [ ! -d "Hydra" ]; then
+            pkg install hydra -y
+        fi
+        read -p "Digite o alvo e o tipo de ataque: " alvo tipo
+        hydra "$alvo" "$tipo"
+        ;;
+    7)
+        echo "Verificando instalação do Metasploit..."
+        if [ ! -d "metasploit-framework" ]; then
+            pkg install unstable-repo
+            pkg install metasploit -y
+        fi
+        msfconsole
+        ;;
+    8)
+        echo "Verificando instalação do Consultas v3..."
+        if [ ! -d "consultas-v3" ]; then
+            pkg install git python -y
+            git clone https://github.com/Marwan-0x0/consultas-v3.git
+        fi
+        cd consultas-v3 && python3 consultas.py
+        cd ..
+        ;;
+    9)
+        echo "Verificando instalação do SpiderBot..."
+        if [ ! -d "SpiderBot" ]; then
+            pkg install git python -y
+            git clone https://github.com/Adriankp/SpiderBot.git
+        fi
+        cd SpiderBot && python3 spider.py
+        cd ..
+        ;;
+    10)
+        echo "Verificando instalação do A-Rat..."
+        if [ ! -d "A-Rat" ]; then
+            pkg install git python -y
+            git clone https://github.com/DaGrande/A-Rat.git
+        fi
+        cd A-Rat && python3 A-Rat.py
+        cd ..
+        ;;
+    11)
+        echo "Verificando instalação do Phonesploit..."
+        if [ ! -d "Phonesploit" ]; then
+            pkg install git python -y
+            git clone https://github.com/UndeadSec/Phonesploit.git
+        fi
+        cd Phonesploit && python3 phonesploit.py
+        cd ..
+        ;;
+    12)
+        echo "Codificando/Decodificando Base64..."
+        read -p "Digite a string para codificar/decodificar: " entrada
+        echo "Codificando..."
+        echo "$entrada" | base64
+        echo "Decodificando..."
+        echo "$entrada" | base64 --decode
+        ;;
+    13)
+        echo "Verificando instalação do Wi-Fi Cracker..."
+        if [ ! -d "Wi-Fi-Cracker" ]; then
+            pkg install git python -y
+            git clone https://github.com/esc0rtd3w/wifi-hacker.git
+        fi
+        cd wifi-hacker && python2 wifi-hacker.py
+        cd ..
+        ;;
+    14)
+        echo "Verificando instalação do Social-Engineer Toolkit..."
+        if [ ! -d "SET" ]; then
+            pkg install git python -y
+            git clone https://github.com/trustedsec/social-engineer-toolkit.git
+        fi
+        cd social-engineer-toolkit && python3 setup.py
+        ;;
+    15)
+        echo "Verificando instalação do Burp Suite..."
+        if [ ! -d "burp-suite" ]; then
+            pkg install openjdk-17 -y
+            wget https://portswigger.net/burp/releases/download?product=community&version=2023.2.1&type=Jar -O burpsuite.jar
+        fi
+        java -jar burpsuite.jar
+        ;;
     0)
         echo "Saindo..."
         exit 0
@@ -93,3 +180,4 @@ case $opcao in
         echo "Opção inválida!"
         ;;
 esac
+  
