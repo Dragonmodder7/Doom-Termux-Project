@@ -27,8 +27,7 @@ Para instalar e usar o **Doom**, siga os passos abaixo.
 1. **Clonar o repositório**:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/Doom.git
-cd Doom
+git clone https://github.com/Dragonmodder7/Doom-Termux-Project.git
 
 2. Instalar as dependências:
 
