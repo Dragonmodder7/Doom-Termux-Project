@@ -42,16 +42,12 @@ O script Doom pode exigir a instalação de algumas ferramentas adicionais. O sc
 3. Dar permissão para executar o script:
 
 
-```bash
 chmod +x doom.sh
 
 4. Executar o Doom:
 
-
-
 Para executar o Doom, use o seguinte comando:
 
-```bash
 ./doom.sh
 
 Como usar
