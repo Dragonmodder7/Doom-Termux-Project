@@ -27,6 +27,10 @@ Para instalar e usar o **Doom**, siga os passos abaixo.
 1. **Clonar o repositório**:
 
 ```bash
+pkg update && pkg upgrade
+pkg install git python
+
+```bash
 git clone https://github.com/Dragonmodder7/Doom-Termux-Project.git
 
 2. Instalar as dependências:
@@ -38,7 +42,7 @@ O script Doom pode exigir a instalação de algumas ferramentas adicionais. O sc
 3. Dar permissão para executar o script:
 
 
-
+```bash
 chmod +x doom.sh
 
 4. Executar o Doom:
@@ -47,6 +51,7 @@ chmod +x doom.sh
 
 Para executar o Doom, use o seguinte comando:
 
+```bash
 ./doom.sh
 
 Como usar
