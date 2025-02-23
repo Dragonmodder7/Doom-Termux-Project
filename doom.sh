@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Definindo cores
-verde="\e[32m"
 vermelho="\e[31m"
+azul="\e[34m"
 reset="\e[0m"
 
 # Exibição do logo
@@ -13,26 +13,27 @@ echo -e "${vermelho}██║  ██║██║   ██║██║   ██�
 echo -e "${vermelho}██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║${reset}"
 echo -e "${vermelho}╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝${reset}"
 echo -e "${vermelho}( -_•)︻デ═一${reset}\n"
-echo -e "${vermelho}By Dragonmodder7 yt${reset}\n"
+echo -e "${vermelho}By Dragon Modder${reset}\n"
 
 # Menu para o usuário escolher a ferramenta
-echo "Escolha uma ferramenta para executar:"
-echo "1 - Nmap (Scanner de rede)"
-echo "2 - Sherlock (Busca de perfis sociais)"
-echo "3 - TBomb (Spam de SMS/Chamadas)"
-echo "4 - Red Hawk (Scanner de sites)"
-echo "5 - Maxphisher (Phishing)"
-echo "6 - Hydra (Ataques de força bruta)"
-echo "7 - Metasploit (Exploração de vulnerabilidades)"
-echo "8 - Consultas v3 (Consultas de dados)"
-echo "9 - SpiderBot (Rastrear sites)"
-echo "10 - A-Rat (Exploração de RAT)"
-echo "11 - Phonesploit (Exploração de dispositivos móveis)"
-echo "12 - Codificação e Decodificação Base64"
-echo "13 - Wi-Fi Cracker (Quebra de senhas Wi-Fi)"
-echo "14 - Social-Engineer Toolkit (Ataques de engenharia social)"
-echo "15 - Burp Suite (Ferramenta de segurança web)"
-echo "0 - Sair"
+echo -e "${azul}Escolha uma ferramenta para executar:${reset}"
+echo -e "${azul}1 - Nmap (Scanner de rede)${reset}"
+echo -e "${azul}2 - Sherlock (Busca de perfis sociais)${reset}"
+echo -e "${azul}3 - TBomb (Spam de SMS/Chamadas)${reset}"
+echo -e "${azul}4 - Red Hawk (Scanner de sites)${reset}"
+echo -e "${azul}5 - Maxphisher (Phishing)${reset}"
+echo -e "${azul}6 - Hydra (Ataques de força bruta)${reset}"
+echo -e "${azul}7 - Metasploit (Exploração de vulnerabilidades)${reset}"
+echo -e "${azul}8 - Consultas v3 (Consultas de dados)${reset}"
+echo -e "${azul}9 - SpiderBot (Rastrear sites)${reset}"
+echo -e "${azul}10 - A-Rat (Exploração de RAT)${reset}"
+echo -e "${azul}11 - Phonesploit (Exploração de dispositivos móveis)${reset}"
+echo -e "${azul}12 - Codificação e Decodificação Base64${reset}"
+echo -e "${azul}13 - Wi-Fi Cracker (Quebra de senhas Wi-Fi)${reset}"
+echo -e "${azul}14 - Social-Engineer Toolkit (Ataques de engenharia social)${reset}"
+echo -e "${azul}15 - Burp Suite (Ferramenta de segurança web)${reset}"
+echo -e "${azul}16 - About (Informações sobre o criador)${reset}"
+echo -e "${azul}0 - Sair${reset}"
 
 # Recebe a opção do usuário
 read -p "Opção: " opcao
@@ -172,6 +173,11 @@ case $opcao in
         fi
         java -jar burpsuite.jar
         ;;
+    16)
+        echo -e "${vermelho}16 tools${reset}"
+        echo -e "${vermelho}By Dragon Modder${reset}"
+        echo -e "${azul}YouTube: https://youtube.com/@dragonmoder7?si=DTiMDzmdZ1-tuAQb${reset}"
+        ;;
     0)
         echo "Saindo..."
         exit 0
@@ -180,4 +186,3 @@ case $opcao in
         echo "Opção inválida!"
         ;;
 esac
-  
