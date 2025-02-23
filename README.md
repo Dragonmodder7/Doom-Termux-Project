@@ -100,3 +100,4 @@ Para mais informações ou perguntas, entre em contato com [SEU EMAIL] ou abra u
 ---
 
 Feito com ❤️ por Dragon Modder.
+YouTube: https://youtube.com/@dragonmoder7?si=CVRgILcJXhyArOZ9
