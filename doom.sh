@@ -1,188 +1,191 @@
 #!/bin/bash
 
-# Definindo cores
+# Cores
 vermelho="\e[31m"
 azul="\e[34m"
 reset="\e[0m"
 
-# Exibição do logo
-echo -e "${vermelho}██████╗  ██████╗  ██████╗ ███╗   ███╗${reset}"
-echo -e "${vermelho}██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║${reset}"
-echo -e "${vermelho}██║  ██║██║   ██║██║   ██║██╔████╔██║${reset}"
-echo -e "${vermelho}██║  ██║██║   ██║██║   ██║██║╚██╔╝██║${reset}"
-echo -e "${vermelho}██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║${reset}"
-echo -e "${vermelho}╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝${reset}"
-echo -e "${vermelho}( -_•)︻デ═一${reset}\n"
-echo -e "${vermelho}By Dragon Modder${reset}\n"
+while true; do
+    clear
+    echo -e "${azul}Doom - Pacote de Ferramentas${reset}"
+    echo "Selecione uma categoria:"
+    echo "1) Phishing"
+    echo "2) Força Bruta & Exploits"
+    echo "3) Consultas e Informações"
+    echo "4) Hacking de Redes"
+    echo "5) Engenharia Social"
+    echo "6) SQL Injection & Web Hacking"
+    echo "7) Ferramentas Gerais"
+    echo "0) Sair"
+    read -p "Escolha uma opção: " opcao
 
-# Menu para o usuário escolher a ferramenta
-echo -e "${azul}Escolha uma ferramenta para executar:${reset}"
-echo -e "${azul}1 - Nmap (Scanner de rede)${reset}"
-echo -e "${azul}2 - Sherlock (Busca de perfis sociais)${reset}"
-echo -e "${azul}3 - TBomb (Spam de SMS/Chamadas)${reset}"
-echo -e "${azul}4 - Red Hawk (Scanner de sites)${reset}"
-echo -e "${azul}5 - Maxphisher (Phishing)${reset}"
-echo -e "${azul}6 - Hydra (Ataques de força bruta)${reset}"
-echo -e "${azul}7 - Metasploit (Exploração de vulnerabilidades)${reset}"
-echo -e "${azul}8 - Consultas v3 (Consultas de dados)${reset}"
-echo -e "${azul}9 - SpiderBot (Rastrear sites)${reset}"
-echo -e "${azul}10 - A-Rat (Exploração de RAT)${reset}"
-echo -e "${azul}11 - Phonesploit (Exploração de dispositivos móveis)${reset}"
-echo -e "${azul}12 - Codificação e Decodificação Base64${reset}"
-echo -e "${azul}13 - Wi-Fi Cracker (Quebra de senhas Wi-Fi)${reset}"
-echo -e "${azul}14 - Social-Engineer Toolkit (Ataques de engenharia social)${reset}"
-echo -e "${azul}15 - Burp Suite (Ferramenta de segurança web)${reset}"
-echo -e "${azul}16 - About (Informações sobre o criador)${reset}"
-echo -e "${azul}0 - Sair${reset}"
+    case $opcao in
+        1)  # Phishing
+            echo "Selecionado: Phishing"
+            echo "1) MaxPhisher"
+            echo "2) Zphisher"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1) 
+                    echo "Instalando MaxPhisher..."
+                    git clone https://github.com/KasRoudra/MaxPhisher.git
+                    cd MaxPhisher && bash maxphisher.sh
+                    cd ..
+                    ;;
+                2)
+                    echo "Instalando Zphisher..."
+                    git clone https://github.com/htr-tech/zphisher.git
+                    cd zphisher && bash zphisher.sh
+                    cd ..
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
+        
+        2)  # Força Bruta & Exploits
+            echo "Selecionado: Força Bruta & Exploits"
+            echo "1) Hydra"
+            echo "2) Metasploit"
+            echo "3) A-Rat (RAT para Android)"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1)
+                    echo "Instalando Hydra..."
+                    pkg install hydra -y
+                    read -p "Digite o alvo e o tipo de ataque: " alvo tipo
+                    hydra "$alvo" "$tipo"
+                    ;;
+                2)
+                    echo "Instalando Metasploit..."
+                    pkg install unstable-repo && pkg install metasploit -y
+                    msfconsole
+                    ;;
+                3)
+                    echo "Instalando A-Rat..."
+                    git clone https://github.com/Xi4u7/A-Rat.git
+                    cd A-Rat && python2 A-Rat.py
+                    cd ..
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
 
-# Recebe a opção do usuário
-read -p "Opção: " opcao
+        3)  # Consultas e Informações
+            echo "Selecionado: Consultas e Informações"
+            echo "1) Consultas v3"
+            echo "2) SpiderBot"
+            echo "3) Phonesploit (Controle Android via ADB)"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1)
+                    echo "Instalando Consultas v3..."
+                    git clone https://github.com/Marwan-0x0/consultas-v3.git
+                    cd consultas-v3 && python3 consultas.py
+                    cd ..
+                    ;;
+                2)
+                    echo "Instalando SpiderBot..."
+                    git clone https://github.com/Adriankp/SpiderBot.git
+                    cd SpiderBot && python3 spider.py
+                    cd ..
+                    ;;
+                3)
+                    echo "Instalando Phonesploit..."
+                    git clone https://github.com/UndeadSec/PhoneSploit.git
+                    cd PhoneSploit && python3 phonesploit.py
+                    cd ..
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
 
-case $opcao in
-    1) 
-        echo "Verificando instalação do Nmap..."
-        if ! command -v nmap &> /dev/null; then
-            pkg install nmap -y
-        fi
-        read -p "Digite o IP ou site para escanear: " alvo
-        nmap -F "$alvo"
-        ;;
-    2) 
-        echo "Verificando instalação do Sherlock..."
-        if [ ! -d "sherlock" ]; then
-            pkg install git python -y
-            git clone https://github.com/sherlock-project/sherlock.git
-            cd sherlock && pip install -r requirements.txt
-            cd ..
-        fi
-        read -p "Digite o nome de usuário para buscar: " usuario
-        cd sherlock && python3 sherlock "$usuario"
-        cd ..
-        ;;
-    3) 
-        echo "Verificando instalação do TBomb..."
-        if [ ! -d "TBomb" ]; then
-            pkg install git python -y
-            git clone https://github.com/TheSpeedX/TBomb.git
-            cd TBomb && pip install -r requirements.txt
-            cd ..
-        fi
-        cd TBomb && bash TBomb.sh
-        cd ..
-        ;;
-    4) 
-        echo "Verificando instalação do Red Hawk..."
-        if [ ! -d "RED_HAWK" ]; then
-            pkg install git php -y
-            git clone https://github.com/Tuhinshubhra/RED_HAWK.git
-        fi
-        cd RED_HAWK && php rhawk.php
-        cd ..
-        ;;
-    5) 
-        echo "Verificando instalação do Maxphisher..."
-        if [ ! -d "MaxPhisher" ]; then
-            pkg install git -y
-            git clone https://github.com/KasRoudra/MaxPhisher.git
-        fi
-        cd MaxPhisher && bash maxphisher.sh
-        cd ..
-        ;;
-    6)
-        echo "Verificando instalação do Hydra..."
-        if [ ! -d "Hydra" ]; then
-            pkg install hydra -y
-        fi
-        read -p "Digite o alvo e o tipo de ataque: " alvo tipo
-        hydra "$alvo" "$tipo"
-        ;;
-    7)
-        echo "Verificando instalação do Metasploit..."
-        if [ ! -d "metasploit-framework" ]; then
-            pkg install unstable-repo
-            pkg install metasploit -y
-        fi
-        msfconsole
-        ;;
-    8)
-        echo "Verificando instalação do Consultas v3..."
-        if [ ! -d "consultas-v3" ]; then
-            pkg install git python -y
-            git clone https://github.com/Marwan-0x0/consultas-v3.git
-        fi
-        cd consultas-v3 && python3 consultas.py
-        cd ..
-        ;;
-    9)
-        echo "Verificando instalação do SpiderBot..."
-        if [ ! -d "SpiderBot" ]; then
-            pkg install git python -y
-            git clone https://github.com/Adriankp/SpiderBot.git
-        fi
-        cd SpiderBot && python3 spider.py
-        cd ..
-        ;;
-    10)
-        echo "Verificando instalação do A-Rat..."
-        if [ ! -d "A-Rat" ]; then
-            pkg install git python -y
-            git clone https://github.com/DaGrande/A-Rat.git
-        fi
-        cd A-Rat && python3 A-Rat.py
-        cd ..
-        ;;
-    11)
-        echo "Verificando instalação do Phonesploit..."
-        if [ ! -d "Phonesploit" ]; then
-            pkg install git python -y
-            git clone https://github.com/UndeadSec/Phonesploit.git
-        fi
-        cd Phonesploit && python3 phonesploit.py
-        cd ..
-        ;;
-    12)
-        echo "Codificando/Decodificando Base64..."
-        read -p "Digite a string para codificar/decodificar: " entrada
-        echo "Codificando..."
-        echo "$entrada" | base64
-        echo "Decodificando..."
-        echo "$entrada" | base64 --decode
-        ;;
-    13)
-        echo "Verificando instalação do Wi-Fi Cracker..."
-        if [ ! -d "Wi-Fi-Cracker" ]; then
-            pkg install git python -y
-            git clone https://github.com/esc0rtd3w/wifi-hacker.git
-        fi
-        cd wifi-hacker && python2 wifi-hacker.py
-        cd ..
-        ;;
-    14)
-        echo "Verificando instalação do Social-Engineer Toolkit..."
-        if [ ! -d "SET" ]; then
-            pkg install git python -y
-            git clone https://github.com/trustedsec/social-engineer-toolkit.git
-        fi
-        cd social-engineer-toolkit && python3 setup.py
-        ;;
-    15)
-        echo "Verificando instalação do Burp Suite..."
-        if [ ! -d "burp-suite" ]; then
-            pkg install openjdk-17 -y
-            wget https://portswigger.net/burp/releases/download?product=community&version=2023.2.1&type=Jar -O burpsuite.jar
-        fi
-        java -jar burpsuite.jar
-        ;;
-    16)
-        echo -e "${vermelho}16 tools${reset}"
-        echo -e "${vermelho}By Dragon Modder${reset}"
-        echo -e "${azul}YouTube: https://youtube.com/@dragonmoder7?si=DTiMDzmdZ1-tuAQb${reset}"
-        ;;
-    0)
-        echo "Saindo..."
-        exit 0
-        ;;
-    *)
-        echo "Opção inválida!"
-        ;;
-esac
+        4)  # Hacking de Redes
+            echo "Selecionado: Hacking de Redes"
+            echo "1) Wi-Fi Cracker"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1)
+                    echo "Instalando Wi-Fi Cracker..."
+                    git clone https://github.com/esc0rtd3w/wifi-hacker.git
+                    cd wifi-hacker && python2 wifi-hacker.py
+                    cd ..
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
+
+        5)  # Engenharia Social
+            echo "Selecionado: Engenharia Social"
+            echo "1) Social-Engineer Toolkit (SET)"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1)
+                    echo "Instalando SET..."
+                    git clone https://github.com/trustedsec/social-engineer-toolkit.git
+                    cd social-engineer-toolkit && python3 setup.py
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
+
+        6)  # SQL Injection & Web Hacking
+            echo "Selecionado: SQL Injection & Web Hacking"
+            echo "1) Sqlmap"
+            echo "2) XSStrike (Cross-Site Scripting Scanner)"
+            echo "3) Websploit"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1)
+                    echo "Instalando Sqlmap..."
+                    git clone https://github.com/sqlmapproject/sqlmap.git
+                    cd sqlmap && python3 sqlmap.py
+                    cd ..
+                    ;;
+                2)
+                    echo "Instalando XSStrike..."
+                    git clone https://github.com/s0md3v/XSStrike.git
+                    cd XSStrike && python3 xsstrike.py
+                    cd ..
+                    ;;
+                3)
+                    echo "Instalando Websploit..."
+                    pkg install websploit -y
+                    websploit
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
+
+        7)  # Ferramentas Gerais
+            echo "Selecionado: Ferramentas Gerais"
+            echo "1) Base64 Encode/Decode"
+            echo "2) Burp Suite"
+            read -p "Escolha uma ferramenta: " escolha
+            case $escolha in
+                1)
+                    read -p "Digite a string para codificar/decodificar: " entrada
+                    echo "Codificando..."
+                    echo "$entrada" | base64
+                    echo "Decodificando..."
+                    echo "$entrada" | base64 --decode
+                    ;;
+                2)
+                    echo "Instalando Burp Suite..."
+                    pkg install openjdk-17 -y
+                    wget https://portswigger.net/burp/releases/download?product=community&version=2023.2.1&type=Jar -O burpsuite.jar
+                    java -jar burpsuite.jar
+                    ;;
+                *) echo "Opção inválida!" ;;
+            esac
+            ;;
+        
+        0)
+            echo "Saindo..."
+            exit 0
+            ;;
+        
+        *)
+            echo "Opção inválida!"
+            ;;
+    esac
+done
