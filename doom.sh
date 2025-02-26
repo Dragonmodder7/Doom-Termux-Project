@@ -1,17 +1,26 @@
 #!/bin/bash
 
+RED='\033[1;31m'     # Vermelho
+GREEN='\033[1;32m'   # Verde
+NC='\033[0m'         # Reset (sem cor)
+
 while true; do
     clear
-    echo "██████╗  ██████╗  ███╗   ███╗"
-    echo "██╔══██╗██╔═══██╗████╗ ████║"
-    echo "██║  ██║██║   ██║██╔████╔██║"
-    echo "██║  ██║██║   ██║██║╚██╔╝██║"
-    echo "██████╔╝╚██████╔╝██║ ╚═╝ ██║"
-    echo "╚═════╝  ╚═════╝ ╚═╝     ╚═╝"
-    echo "Doom - Pacote de Ferramentas"
+    echo -e "${RED}⠀⠀⠀⠀⢀⣀⣤⣤⣤⣤⣄⡀⠀⠀⠀⠀"
+    echo -e "⠀⢀⣤⣾⣿⣾⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀"
+    echo -e "⢠⣾⣿⢛⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀"
+    echo -e "⣾⣯⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧"
+    echo -e "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
+    echo -e "⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠻⢿⡵"
+    echo -e "⢸⡇⠀⠀⠉⠛⠛⣿⣿⠛⠛⠉⠀⠀⣿⡇"
+    echo -e "⢸⣿⣀⠀⢀⣠⣴⡇⠹⣦⣄⡀⠀⣠⣿⡇"
+    echo -e "⠈⠻⠿⠿⣟⣿⣿⣦⣤⣼⣿⣿⠿⠿⠟⠀"
+    echo -e "|⠀⠀⠀⠀⠸⡿⣿⣿⢿⡿⢿⠇⠀⠀⠀⠀"
+    echo -e "|⠀⠀⠀⠀⠀⠀⠈⠁⠈⠁⠀⠀⠀⠀⠀⠀"
+    echo -e "|=====> Doom Painel${NC}"
     echo "By Dragon Modder"
     echo "-----------------------------------------"
-    echo "1) Phishing"
+    echo -e "${GREEN}1) Phishing"
     echo "2) Força Bruta & Exploits"
     echo "3) Consultas & Informações"
     echo "4) Hacking de Redes"
@@ -19,14 +28,15 @@ while true; do
     echo "6) SQL Injection & Web Hacking"
     echo "7) Ataques DDoS"
     echo "8) Ferramentas Gerais"
-    echo "9) Criptografia & Ofuscação"
-    echo "0) Sair"
+    echo -e "9) Criptografia & Ofuscação"
+    echo -e "0) Sair${NC}"
+    
     read -p "Escolha uma opção: " opcao
 
     case $opcao in
         1)  # Phishing
-            echo "1) MaxPhisher"
-            echo "2) Zphisher"
+            echo -e "${GREEN}1) MaxPhisher"
+            echo "2) Zphisher${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) git clone https://github.com/KasRoudra/MaxPhisher.git && cd MaxPhisher && bash maxphisher.sh ;;
@@ -35,9 +45,9 @@ while true; do
             ;;
 
         2)  # Força Bruta & Exploits
-            echo "1) Hydra"
+            echo -e "${GREEN}1) Hydra"
             echo "2) Metasploit"
-            echo "3) A-Rat"
+            echo -e "3) A-Rat${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) pkg install hydra -y ;;
@@ -47,9 +57,9 @@ while true; do
             ;;
 
         3)  # Consultas & Informações
-            echo "1) Consultas v3"
+            echo -e "${GREEN}1) Consultas v3"
             echo "2) SpiderBot"
-            echo "3) Sherlock (Busca Redes Sociais)"
+            echo -e "3) Sherlock (Busca Redes Sociais)${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) git clone https://github.com/Marwan-0x0/consultas-v3.git && cd consultas-v3 && python3 consultas.py ;;
@@ -59,11 +69,11 @@ while true; do
             ;;
 
         4)  # Hacking de Redes
-            echo "1) Wi-Fi Cracker"
+            echo -e "${GREEN}1) Wi-Fi Cracker"
             echo "2) Aircrack-NG"
             echo "3) Wifite"
             echo "4) Routersploit"
-            echo "5) Bettercap"
+            echo -e "5) Bettercap${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) git clone https://github.com/esc0rtd3w/wifi-hacker.git && cd wifi-hacker && python2 wifi-hacker.py ;;
@@ -79,9 +89,9 @@ while true; do
             ;;
 
         6)  # SQL Injection & Web Hacking
-            echo "1) SQLmap"
+            echo -e "${GREEN}1) SQLmap"
             echo "2) Admin Finder"
-            echo "3) XSS-Freak"
+            echo -e "3) XSS-Freak${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) git clone https://github.com/sqlmapproject/sqlmap.git && cd sqlmap && python3 sqlmap.py --help ;;
@@ -91,9 +101,9 @@ while true; do
             ;;
 
         7)  # Ataques DDoS
-            echo "1) Hammer"
+            echo -e "${GREEN}1) Hammer"
             echo "2) GoldenEye"
-            echo "3) Slowloris"
+            echo -e "3) Slowloris${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) git clone https://github.com/cyweb/hammer.git && cd hammer && python3 hammer.py -s "$alvo" -t 135 ;;
@@ -103,8 +113,8 @@ while true; do
             ;;
 
         8)  # Ferramentas Gerais
-            echo "1) Nmap"
-            echo "2) TBomb"
+            echo -e "${GREEN}1) Nmap"
+            echo -e "2) TBomb${NC}"
             read -p "Escolha: " escolha
             case $escolha in
                 1) pkg install nmap -y ;;
